@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    <link rel="stylesheet" href="./src/css/style.min.css">
+    <link rel="icon" type="image/x-icon" href="./src/img/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="./src/js/index.js" type="module" defer></script>
+</head>
+
+<body>
+    <header class="container__header">
+        <a href="https://openweathermap.org" target="_blank">
+            <h1>WeatherApp</h1>
+        </a>
+    </header>
+    <main>
+        <div class="container__first">
+            <!-- Input -->
+            <section class="input__section">
+                <div class="container__input">
+                    <div class="circle__input">
+                        <div class="input-group">
+                            <input type="text" class="form-control" inputmode="text" id="nameCity" placeholder="City" />
+                        </div>
+                        <img id="btnCityName" src="./src/img/search.png" class="btn">
+                    </div>
+                </div>
+                <div class="container__input">
+                    <div class="circle__input" id="btnCurrent"><img class="btn" src="./src/img/position.png"></div>
+                </div>
+                <div class="container__input">
+                    <div class="circle__input">
+                        <div class="input-group">
+                            <input type="text" class="form-control" inputmode="numeric" id="latitude"
+                                placeholder="Latitude" aria-label="latitude" aria-describedby="basic-addon1" value="" />
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" inputmode="numeric" id="longitude"
+                                placeholder="Longitude" aria-label="longitude" aria-describedby="basic-addon1"
+                                value="" />
+                        </div>
+                        <img id="btnGet" src="./src/img/search.png" class="btn">
+                    </div>
+                </div>
+                <div class="container__input">
+                    <div class="circle__input">
+                        <div class="input-group">
+                            <input type="text" class="form-control" inputmode="text" id="nameCompareCity1"
+                                placeholder="City 1" />
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" inputmode="text" id="nameCompareCity2"
+                                placeholder="City 2" />
+                        </div>
+                        <img id="btnCityCompareName" src="./src/img/compare.png" class="btn">
+                    </div>
+                </div>
+            </section>
+            <!-- Chart -->
+            <section class="chart__section">
+                <canvas id="myChart" width="0" height="0"></canvas>
+            </section>
+            <!-- main card -->
+            <section class="mainCard__section" id="weatherApp">
+            </section>
+        </div>
+        <div class="container__app">
+            <!-- five days cards -->
+            <section class="cardFlip__section">
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>

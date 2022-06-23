@@ -1,0 +1,398 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Road+Rage&display=swap');
+
+body {
+  background: rgb(60, 60, 60);
+  color: white;
+  font-family: 'Road Rage', cursive;
+  font-size: larger;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow-x: hidden;
+
+  .container__header {
+    a {
+      text-decoration: none;
+      width: 400px;
+      display: block;
+      margin: 0 auto;
+
+      h1 {
+        font-size: 110px;
+        font-family: 'Road Rage', cursive;
+        text-align: center;
+        box-sizing: border-box;
+        background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 1));
+        border-radius: 70px;
+        width: 400px;
+        margin: 15px auto;
+        padding: 15px 10px;
+        color: white;
+        filter: drop-shadow(-1px 1px 5px rgb(10, 150, 225)) drop-shadow(-1px -1px 5px rgb(185, 10, 165));
+      }
+    }
+  }
+
+  main {
+    .container__first {
+      width: 100%;
+      box-sizing: border-box;
+      justify-content: space-between;
+      display: flex;
+
+      .input__section {
+        display: flex;
+        flex-wrap: wrap;
+        width: 350px;
+        box-sizing: border-box;
+        align-items: center;
+
+        .container__input {
+          width: 50%;
+          box-sizing: border-box;
+          margin-bottom: 10px;
+
+          .circle__input {
+            background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 1));
+            filter: drop-shadow(-1px 1px 5px rgb(10, 150, 225)) drop-shadow(-1px -1px 5px rgb(185, 10, 165));
+            border-radius: 50%;
+            box-sizing: border-box;
+            height: 120px;
+            width: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            &:hover {
+              animation: 0.5s 0s 1 shake;
+            }
+
+            .input-group {
+              filter: drop-shadow(-1px 1px 5px rgb(10, 150, 225)) drop-shadow(-1px -1px 5px rgb(185, 10, 165));
+
+              .form-control {
+                width: 65px;
+                background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(60, 60, 60, 0.5));
+                outline: none;
+                border: none;
+                border-radius: 15px;
+                color: white;
+
+                &::placeholder {
+                  color: rgba(255, 255, 255, 0.2);
+                  opacity: 1;
+                  font-family: 'Open Sans', sans-serif;
+                  font-weight: bolder;
+                }
+              }
+            }
+
+            .btn {
+              width: 32px;
+              height: 32px;
+              filter: drop-shadow(-1px 1px 5px rgb(10, 150, 225)) drop-shadow(-1px -1px 5px rgb(185, 10, 165));
+              margin: 10px auto;
+              margin-bottom: 0px;
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
+            &#btnCurrent:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .chart__section {
+        width: 350px;
+        height: 250px;
+        margin-right: 50px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        filter: drop-shadow(-1px 1px 5px rgb(10, 150, 225)) drop-shadow(-1px -1px 5px rgb(185, 10, 165));
+      }
+
+      .mainCard__section {
+        box-sizing: border-box;
+        width: 350px;
+        height: 250px;
+        margin-bottom: 10px;
+
+        .mainCard {
+          box-sizing: border-box;
+          background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 1));
+          filter: drop-shadow(-1px 1px 5px rgb(10, 150, 225)) drop-shadow(-1px -1px 5px rgb(185, 10, 165));
+          border-radius: 50px;
+          width: 350px;
+          min-height: 250px;
+          transform-style: preserve-3d;
+          transition: all 0.8s ease;
+          animation: 2s ease-out 0s opacit;
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          .date__mainCard {
+            font-size: 24px;
+            text-align: center;
+            padding-top: 20px;
+            min-height: 50px;
+            display: block;
+            box-sizing: border-box;
+          }
+
+          .front__mainCard {
+            display: flex;
+            max-width: 280px;
+            justify-content: space-between;
+            margin: 0px auto;
+            min-height: 200px;
+            align-items: center;
+
+            .container-img__mainCard {
+              height: 128px;
+              width: 128px;
+
+              .imgMeteo__MainCard {
+                display: block;
+                width: 100%;
+                filter: drop-shadow(-1px 1px 5px rgb(10, 150, 225)) drop-shadow(-1px -1px 5px rgb(185, 10, 165));
+              }
+            }
+
+            .container-txt__mainCard {
+              padding-bottom: 15px;
+
+              p {
+                margin-top: 15px;
+
+                &.location__mainCard {
+                  font-size: 32px;
+                }
+
+                &.meteo__mainCard {
+                  font-size: 20px;
+                }
+
+                &.temp__mainCard {
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+
+          .back__mainCard {
+            display: none;
+          }
+
+          &.active {
+            transform: rotateY(180deg);
+
+            .date__mainCard {
+              transform: rotateY(180deg);
+            }
+
+            .front__mainCard {
+              display: none;
+            }
+
+            .back__mainCard {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              max-width: 280px;
+              margin: 0px auto;
+              min-height: 200px;
+              font-size: 16px;
+              transform: rotateY(180deg);
+
+              .card-text {
+                margin-bottom: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .container__app {
+      .cardFlip__section {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+
+        .cardFlip {
+          box-sizing: border-box;
+          background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 1));
+          filter: drop-shadow(-1px 1px 5px rgb(10, 150, 225)) drop-shadow(-1px -1px 5px rgb(185, 10, 165));
+          border-radius: 50px;
+          width: 180px;
+          min-height: 250px;
+          margin-top: 10px;
+          transform-style: preserve-3d;
+          transition: all 0.8s ease;
+          animation: 2s ease-out 0s slide;
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          .date__cardFlip {
+            font-size: 20px;
+            text-align: center;
+            padding-top: 10px;
+            min-height: 30px;
+            display: block;
+            box-sizing: border-box;
+          }
+
+          .front {
+            display: initial;
+            font-size: 16px;
+            box-sizing: border-box;
+
+            .container-img__cardFlip {
+              height: 110px;
+              width: 110px;
+              margin: 0 auto;
+              margin-top: 10px;
+
+              .imgMeteo__cardFlip {
+                display: block;
+                width: 100%;
+                filter: drop-shadow(-1px 1px 5px rgb(10, 150, 225)) drop-shadow(-1px -1px 5px rgb(185, 10, 165));
+              }
+            }
+
+            .container-txt__cardFlip {
+              text-align: center;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              min-height: 100px;
+              box-sizing: border-box;
+              padding-bottom: 5px;
+
+              p {
+                margin-top: 5px;
+
+                &.meteo__cardFlip {
+                  font-size: 18px;
+                }
+
+                &.location__cardFlip {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+
+          .back {
+            display: none;
+          }
+
+          &.active {
+            transform: rotateY(180deg);
+
+            .date__cardFlip {
+              transform: rotateY(180deg);
+            }
+
+            .front {
+              display: none;
+            }
+
+            .back {
+              display: flex;
+              flex-direction: column;
+              font-size: 16px;
+              justify-content: center;
+              min-height: 220px;
+              transform: rotateY(180deg);
+
+              .card-text {
+                margin: 15px 10px;
+                margin-top: 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes opacit {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(1100px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
