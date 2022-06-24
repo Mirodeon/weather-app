@@ -49,4 +49,5 @@ export const appInit = () => {
     inputBtn();
     inputKey();
     bgLandscape();
+    console.log("bonjour!");
 };

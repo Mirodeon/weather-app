@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.681cabc7.ico">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    
+  <script type="module" crossorigin src="/assets/index.2313a8d6.js"></script>
+  <link rel="stylesheet" href="/assets/index.dea4d549.css">
+</head>
+
+<body>
+    <header class="container__header">
+        <a href="https://openweathermap.org" target="_blank">
+            <h1>WeatherApp</h1>
+        </a>
+    </header>
+    <main>
+        <div class="container__first">
+            <!-- Input -->
+            <section class="input__section">
+                <div class="container__input">
+                    <div class="circle__input">
+                        <div class="input-group">
+                            <input type="text" class="form-control" inputmode="text" id="nameCity" placeholder="City" />
+                        </div>
+                        <img id="btnCityName" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAgCAYAAAABtRhCAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAcxJREFUSInt1T1rVEEUxvGf8QXiiqgE/QKKNoqisRCboIWFlbpKCisFGyFWFgp+ARFLKwWLBCtNJK0INlonYCXYGBAEYwQxvsZiZrizyy57J8kGizwwzL2795z/mZdzDuta1/+uDcu024jTOIV9GMQ8ZjGNmVWJLmoU77HUZfzFSxxeKWgzHncA/MQC/rT9vogrKwGOt0EeYBib4v/bcBYvtK728nJgVzMnH3G8x/fX8Tt+/w17S2CDEZK26WhNu5tZkE9KgKOZ4d0CuwHhtqYjGKpr+Eh1HkVbgzFVsM0URS/tj/MnvCsEvs6eD9QFNuL8pRBGSJcWP3WACbRbeWXakz3P1wXOxnmH+jc0aaSDn546ozr48QJYAx+i3VdsrWs4gLeqm9qsafcwC/R+QaAInSHVykWh8nRTQ5VKS5jDrhLYoTjfElaYHL3BNRwR8vMk7qi2MZW1EyWwc/iBG/F9LL53a035mCuFnRdKUjq720JaHMSUqji3jwXcw85OTrvl1QVMCD0waToLgpBjI1o7/gxe4XvJyprZytJ4ji0lTurqYgfYVL9gl/CrDTbZL9h2oRvksGdaz3DVNYzPEfa037CkY0KVWBPYmugfhvuYiSKleOkAAAAASUVORK5CYII=" class="btn">
+                    </div>
+                </div>
+                <div class="container__input">
+                    <div class="circle__input" id="btnCurrent"><img class="btn" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwABOvYAATr2ATqxVzoAAAAHdElNRQflBBATGSyYfAkcAAABtUlEQVRIx8XUsWtTQRzA8U+SFoI2QxWExlalWNFBVNBBKrh08z8oWEdxFqHU1VWhi3TI5j/gIC7FwU0RrUsRzKC2WCSiVsWYkibPofVxad57Sab+brn7vft+7/3u3Tv2O3KpTwrKppyQ80HVhtYg2oJpS6rq2trqqpZMK/SLlyyoifa0mrtK/eGLml14JNK0aKT3nsyn4DuK270El2yk4pHImgudQH6PYNZYMIo0bImCzIS5rPXHrAarbbpvxowHfgbZt46kC674HdR7Z/fDFSzYjvO/XE4XzGnHE98px/lj3sf5ltn0PRgKTuZXm3H/u1pAjKQLPmnE/UmTif0t6+klnLQWbFfFKBhVCbKfne586TDWrZiIRzcc9xTXXA3mrPiY9SFvBtuY1FpuyYxxbzIFrzoOWmJcV0/F/2afw50oepgqqCj2FjDmSSL+zHg/OJzyvAt/7Vy/OJyx3IG/cH4QHI56tHu1bHtsalAcSuZ98c09h9Mn5TIVeRcNeZl1pScLCooOGnZAHm11TX80kkRJgrKzDinKK8gh0tLW8MNq95+YlyT9r41S8gOUMIxmVgn7H/8A0a8DGq7HaqgAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjEtMDQtMTZUMTk6MjU6NDQrMDA6MDDyMR6FAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIxLTA0LTE2VDE5OjI1OjQ0KzAwOjAwg2ymOQAAACB0RVh0c29mdHdhcmUAaHR0cHM6Ly9pbWFnZW1hZ2ljay5vcme8zx2dAAAAGHRFWHRUaHVtYjo6RG9jdW1lbnQ6OlBhZ2VzADGn/7svAAAAGHRFWHRUaHVtYjo6SW1hZ2U6OkhlaWdodAA1MTKPjVOBAAAAF3RFWHRUaHVtYjo6SW1hZ2U6OldpZHRoADUxMhx8A9wAAAAZdEVYdFRodW1iOjpNaW1ldHlwZQBpbWFnZS9wbmc/slZOAAAAF3RFWHRUaHVtYjo6TVRpbWUAMTYxODYwMTE0NPFs3sgAAAASdEVYdFRodW1iOjpTaXplADk5MTJCQotRmloAAABEdEVYdFRodW1iOjpVUkkAZmlsZTovLy4vdXBsb2Fkcy81Ni9ZSGFzQzRnLzI5NDUvbG9jYXRpb25faWNvbl8xODQxNjcucG5nDRhcOQAAAABJRU5ErkJggg=="></div>
+                </div>
+                <div class="container__input">
+                    <div class="circle__input">
+                        <div class="input-group">
+                            <input type="text" class="form-control" inputmode="numeric" id="latitude"
+                                placeholder="Latitude" aria-label="latitude" aria-describedby="basic-addon1" value="" />
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" inputmode="numeric" id="longitude"
+                                placeholder="Longitude" aria-label="longitude" aria-describedby="basic-addon1"
+                                value="" />
+                        </div>
+                        <img id="btnGet" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAgCAYAAAABtRhCAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAcxJREFUSInt1T1rVEEUxvGf8QXiiqgE/QKKNoqisRCboIWFlbpKCisFGyFWFgp+ARFLKwWLBCtNJK0INlonYCXYGBAEYwQxvsZiZrizyy57J8kGizwwzL2795z/mZdzDuta1/+uDcu024jTOIV9GMQ8ZjGNmVWJLmoU77HUZfzFSxxeKWgzHncA/MQC/rT9vogrKwGOt0EeYBib4v/bcBYvtK728nJgVzMnH3G8x/fX8Tt+/w17S2CDEZK26WhNu5tZkE9KgKOZ4d0CuwHhtqYjGKpr+Eh1HkVbgzFVsM0URS/tj/MnvCsEvs6eD9QFNuL8pRBGSJcWP3WACbRbeWXakz3P1wXOxnmH+jc0aaSDn546ozr48QJYAx+i3VdsrWs4gLeqm9qsafcwC/R+QaAInSHVykWh8nRTQ5VKS5jDrhLYoTjfElaYHL3BNRwR8vMk7qi2MZW1EyWwc/iBG/F9LL53a035mCuFnRdKUjq720JaHMSUqji3jwXcw85OTrvl1QVMCD0waToLgpBjI1o7/gxe4XvJyprZytJ4ji0lTurqYgfYVL9gl/CrDTbZL9h2oRvksGdaz3DVNYzPEfa037CkY0KVWBPYmugfhvuYiSKleOkAAAAASUVORK5CYII=" class="btn">
+                    </div>
+                </div>
+                <div class="container__input">
+                    <div class="circle__input">
+                        <div class="input-group">
+                            <input type="text" class="form-control" inputmode="text" id="nameCompareCity1"
+                                placeholder="City 1" />
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" inputmode="text" id="nameCompareCity2"
+                                placeholder="City 2" />
+                        </div>
+                        <img id="btnCityCompareName" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwABOvYAATr2ATqxVzoAAAAHdElNRQfkCQEQLgDjjFx8AAAB1klEQVRIx83UPWhTURjG8V+axOrkpZWmjejqoqhFoq06OLtI6eLgYIViBPFjVwRXB3FxkIqfNEop4hqkLRYcpLo4NVocO2jdhMaa45A0JE3apF3qe+Fyec99/vfhPec+bHfF23in21klP9rBJaWl7ajrpTxRMiVqLT/uqYKCFwarvR7PBMF7Xa3kJ3wVKteCk3XyT461mkHcXWf8MeWb/bp1eqPHPRewIu+vjMOSlqw0B6XNC/IikbxgXsqtqqNS5f7LY3vrhYlN7FhM5KLgiuXGxYTngqK8vKJgXFyvnJKgaMyoy274LFiSac4ftFC1/N1p0CsnCOb0g2uCYGQ9iwPeCYJpp6q9VcSMCFlBkK0VddQ8fzABXpmt9hZdNy6seXNTQ1x01aQvlrYK4GfFWdPqaAOwYf3PgAOG7dk6IPLQaw/0NlmLtQOISYg5734NIuMcGDKwnp8RQXAT9JsTBLkKolleWJuJScN2Sel0VJ+EQzoctM+s3w158Vap0UGnsepXVlMgCO5INeRFuiypP4nLbmPI7vpBba52yrgka9QjRUEwqU+8IS9a/gRHfKzIy2ab5cUGFZmuk5cRL80ryLWW02VGyUSNvLxLaWnJ9mbR5lHe/voHzaCxOb5baqcAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMDktMDFUMTY6NDY6MDArMDA6MDD8mlfQAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTA5LTAxVDE2OjQ2OjAwKzAwOjAwjcfvbAAAACB0RVh0c29mdHdhcmUAaHR0cHM6Ly9pbWFnZW1hZ2ljay5vcme8zx2dAAAAGHRFWHRUaHVtYjo6RG9jdW1lbnQ6OlBhZ2VzADGn/7svAAAAGHRFWHRUaHVtYjo6SW1hZ2U6OkhlaWdodAA1MTKPjVOBAAAAF3RFWHRUaHVtYjo6SW1hZ2U6OldpZHRoADUxMhx8A9wAAAAZdEVYdFRodW1iOjpNaW1ldHlwZQBpbWFnZS9wbmc/slZOAAAAF3RFWHRUaHVtYjo6TVRpbWUAMTU5ODk3ODc2MBSsAt4AAAATdEVYdFRodW1iOjpTaXplADEwNTAxQkLcO4GsAAAAR3RFWHRUaHVtYjo6VVJJAGZpbGU6Ly8uL3VwbG9hZHMvNTYvdWNxVVVqcS8yNTE4L2dpdF9jb21wYXJlX2ljb25fMTUxMzI1LnBuZ2HsF4UAAAAASUVORK5CYII=" class="btn">
+                    </div>
+                </div>
+            </section>
+            <!-- Chart -->
+            <section class="chart__section">
+                <canvas id="myChart" width="0" height="0"></canvas>
+            </section>
+            <!-- main card -->
+            <section class="mainCard__section" id="weatherApp">
+            </section>
+        </div>
+        <div class="container__app">
+            <!-- five days cards -->
+            <section class="cardFlip__section">
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
