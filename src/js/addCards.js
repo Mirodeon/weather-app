@@ -9,6 +9,9 @@ import { units } from './variable.js';
 import { flipMainCard } from './flipCard.js';
 import { flipCard } from './flipCard.js';
 
+//dynamicImgUrl
+import { getImageUrl } from './dynamicImgUrl.js';
+
 //weather via Lon & Lat
 export const showWeatherLonLat = (response) => {
     /*if (window.myChart instanceof Chart) {
@@ -33,7 +36,7 @@ export const showWeatherLonLat = (response) => {
                 <p class="temp__mainCard"><b>Low:</b> ${day.temp.min}&deg;C</p>
             </div>
             <div class="container-img__mainCard">
-                <img src="./src/img/${day.weather[0].icon}.png" class="imgMeteo__MainCard"
+                <img src="${getImageUrl(day.weather[0].icon)}" class="imgMeteo__MainCard"
                     alt="${day.weather[0].description}" />
             </div>
         </div>
@@ -91,7 +94,7 @@ export const showWeather = (response) => {
                 <p class="temp__mainCard"><b>Low:</b> ${response.main.temp_min}&deg;C</p>
             </div>
             <div class="container-img__mainCard">
-                <img src="./src/img/${response.weather[0].icon}.png" class="imgMeteo__MainCard"
+                <img src="${getImageUrl(response.weather[0].icon)}" class="imgMeteo__MainCard"
                     alt="${response.weather[0].description}" />
             </div>
         </div>
@@ -120,7 +123,7 @@ export const showNextWeather = (respWeather) => {
           <div class="date__cardFlip">${dt.toDateString()}</div>
           <div class="front">
               <div class="container-img__cardFlip">
-                  <img src="./src/img/${day.weather[0].icon}.png" class="imgMeteo__cardFlip"
+                  <img src="${getImageUrl(day.weather[0].icon)}" class="imgMeteo__cardFlip"
                       alt="${day.weather[0].description}" />
               </div>
               <div class="container-txt__cardFlip">
