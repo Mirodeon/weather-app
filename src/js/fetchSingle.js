@@ -39,7 +39,7 @@ export const getLatLon = () => {
         });
     if (page.style.backgroundImage != urlLandscape) {
         bgLandscape();
-    };
+    }
 };
 
 //fetch by Current Location

@@ -23,24 +23,24 @@ const inputKey = () => {
     document.getElementById('nameCity').addEventListener('keyup', event => {
         if (event.key === 'Enter') {
             document.getElementById("btnCityName").click();
-        };
+        }
     });
     let idLatLon = document.querySelectorAll('#latitude, #longitude');
     for (let i = 0; i < idLatLon.length; i++) {
         idLatLon[i].addEventListener('keyup', event => {
             if (event.key === 'Enter') {
                 document.getElementById("btnGet").click();
-            };
+            }
         });
-    };
+    }
     let idCityCompare = document.querySelectorAll('#nameCompareCity1, #nameCompareCity2');
     for (let i = 0; i < idCityCompare.length; i++) {
         idCityCompare[i].addEventListener('keyup', event => {
             if (event.key === 'Enter') {
                 document.getElementById("btnCityCompareName").click();
-            };
+            }
         });
-    };
+    }
     console.log('add eventlistener key enter');
 };
 

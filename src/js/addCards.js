@@ -142,7 +142,7 @@ export const showNextWeather = (respWeather) => {
               <p class="card-text"><b>Precipitation:</b> ${day.pop * 100}%</p>
           </div>
           </article>`;
-            };
+            }
         })
         .join(' ');
     console.log("join cards");

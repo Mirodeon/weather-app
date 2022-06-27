@@ -29,7 +29,7 @@ export const unsplashCall = () => {
             console.log('Noob !', error);
             if (page.style.backgroundImage != urlLandscape) {
                 bgLandscape()
-            };
+            }
             alert(`Background image for the city ${city} was not found :c`);
         });
 };
